@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title', 50);
             $table->string('date', 20);
             $table->string('last_update', 20);
+            $table->text('description', 300);
             $table->softDeletes();
             $table->timestamps();
         });
