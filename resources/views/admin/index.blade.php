@@ -13,6 +13,7 @@
                     <th scope="col">Nome</th>
                     <th scope="col">Data</th>
                     <th scope="col">ultimo aggiornamento</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -21,6 +22,22 @@
                         <td>{{ $project->title }}</td>
                         <td>{{ $project->date }}</td>
                         <td>{{ $project->last_update }}</td>
+                        <td class="d-flex justify-content-end">
+                            <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-sm btn-primary me-2">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-sm btn-warning me-2">
+                                <i class="fas fa-pencil"></i>
+                            </a>
+                            <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
+                                @method('DELETE')
+                                @csrf
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+
+                            </form>
+                        </td>
                     </tr>
                 @empty
                     <tr>
