@@ -15,7 +15,7 @@
             <tbody>
                 @forelse ($projects as $project)
                     <tr>
-                        <td>{{ $project->name }}</td>
+                        <td>{{ $project->title }}</td>
                         <td>{{ $project->date }}</td>
                         <td>{{ $project->last_update }}</td>
                     </tr>

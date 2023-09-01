@@ -11,11 +11,10 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-
+    public function index(Project $projetcs)
     {
-        $projects = Project::orderBy('last_update', 'DESC')->get();
-        return view('admin.projects.index', compact('projects'));
+        // $projects = Project::orderBy('last_update', 'DESC')->get();
+        return view('admin.index', compact('projects'));
     }
 
     /**
@@ -23,7 +22,6 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**
@@ -31,7 +29,6 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
     }
 
     /**
@@ -39,7 +36,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
     }
 
     /**
@@ -47,7 +43,6 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
     }
 
     /**
@@ -55,7 +50,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
     }
 
     /**
