@@ -13,11 +13,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link @if (request()->routeIs('admin.home')) active @endif"
-                        href="{{ url('/') }}">{{ __('Home') }}</a>
-                </li>
-                @auth
+
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link @if (request()->routeIs('guest')) active @endif"
+                            href="{{ url('/guest') }}">{{ __('Home') }}</a>
+                    </li>
+                @endguest
+
+                @auth<li class="nav-item">
+                        <a class="nav-link @if (request()->routeIs('admin')) active @endif"
+                            href="{{ url('/admin') }}">{{ __('Home') }}</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link @if (request()->routeIs('admin.projects.index')) active @endif"
                             href="{{ route('admin.projects.index') }}">Projects</a>

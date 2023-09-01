@@ -11,9 +11,9 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Project $projetcs)
+    public function index()
     {
-        // $projects = Project::orderBy('last_update', 'DESC')->get();
+        $projects = Project::orderBy('last_update', 'DESC')->get();
         return view('admin.index', compact('projects'));
     }
 

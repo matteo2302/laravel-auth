@@ -2,11 +2,14 @@
 
 @section('content')
     <div class="container">
-        <h1>I miei progetti</h1>
+        <header class="d-flex justify-content-between align-item-center my-4">
+            <h1>I miei progetti</h1>
+            <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Torna indietro</a>
+        </header>
+
         <table class="table table-hover">
             <thead>
                 <tr>
-
                     <th scope="col">Nome</th>
                     <th scope="col">Data</th>
                     <th scope="col">ultimo aggiornamento</th>
@@ -26,8 +29,6 @@
                         </td>
                     </tr>
                 @endforelse
-
-
             </tbody>
         </table>
     </div>
