@@ -4,7 +4,12 @@
     <div class="container">
         <header class="d-flex justify-content-between align-item-center my-4">
             <h1>I miei progetti</h1>
-            <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Torna indietro</a>
+
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Torna indietro</a>
+                <a class="btn btn-warning" href="{{ route('admin.projects.create') }}">Aggiungi progetto</a>
+
+            </div>
         </header>
 
         <table class="table table-hover">

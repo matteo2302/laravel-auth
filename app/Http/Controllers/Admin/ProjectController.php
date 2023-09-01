@@ -14,7 +14,7 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::orderBy('last_update', 'DESC')->get();
-        return view('admin.index', compact('projects'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -22,6 +22,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        return view('admin.projects.create');
     }
 
     /**
@@ -29,6 +30,15 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required | max:25',
+        ]);
+
+        $data = $request->all();
+        $project = new Project;
+        $project->fill($data);
+        $project->save();
+        return to_route('admin.projects.show');
     }
 
     /**
@@ -44,6 +54,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
