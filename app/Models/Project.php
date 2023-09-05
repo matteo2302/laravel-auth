@@ -18,8 +18,8 @@ class Project extends Model
     // {
     //     return Attribute::make(set: fn ($value) => asset('storage/' . $value));
     // }
-    public function imagePath()
+    public function getImageAttribute($value)
     {
-        return asset('storage/' . $this->image);
+        return asset('storage/' . $value);
     }
 };
