@@ -20,7 +20,7 @@ class ProjectSeeder extends Seeder
             $project->date = $faker->dateTime();
             $project->last_update = $faker->dateTime();
             $project->description = implode(' ', $faker->paragraphs());
-            $project->image = $faker->imageUrl(640, 480, 'animals', true);
+            $project->image = $faker->image(null, 640, 480);
             $project->save();
         }
     }
