@@ -21,12 +21,18 @@
                                 <input type="number" class="form-control" id="date" name="date">
                             </div>
                         </div>
+
                         <div class="col-6">
                             <div class="mb-3">
                                 <label for="last_update" class="form-label">Ultima modifica</label>
                                 <input type="number" class="form-control" id="last_update" name="last_update">
                             </div>
                         </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">immagine</label>
+                        <input type="text" class="form-control" id="image" name="image"
+                            placeholder="aggiungi il file dell'immagine">
                     </div>
                     <div class="col-8">
                         <div class="mb-3">
@@ -36,7 +42,7 @@
                     </div>
                 </div>
             </div>
-            <div class="d-flex justify-content-end mt-4">
+            <div class="d-flex justify-content-end my-4">
                 <button class="btn btn-success"><i class="fas fa-floppy-disk me-2"></i>Salva</button>
             </div>
         </form>
