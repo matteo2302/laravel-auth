@@ -34,6 +34,9 @@ class ProjectController extends Controller
         $data = $request->validate([
             'title' => 'required | max:25',
             'image' => 'nullable | image',
+            'date' => 'nullable | max:7',
+            'last_update' => 'nullable | max:7',
+            'description' => 'nullable | max:250',
         ]);
 
         if (array_key_exists('image', $data)) {
@@ -43,7 +46,7 @@ class ProjectController extends Controller
         $project = new Project;
         $project->fill($data);
         $project->save();
-        return to_route('admin.projects.show');
+        return to_route('admin.projects.show', $project);
     }
 
     /**
@@ -68,10 +71,13 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $data = $request->all();
-        if (array_key_exists('image', $data)) {
-            if ($project->image) Storage::delete('', $data['image']);
+        if ($request->hasFile('image')) {
+            if ($project->image) {
+                Storage::delete($project->image);
+            }
+            $image = Storage::putFile('project_image', $request->file('image'));
             $data['image'] = $image;
-        };
+        }
         $project->update($data);
         return to_route('admin.projects.show', $project);
     }
