@@ -5,7 +5,7 @@
             <h1>Modifica progetto</h1>
             <a class="btn btn-primary" href="{{ route('admin.projects.show', $project) }}">Torna indietro</a>
         </header>
-        <form action="{{ route('admin.projects.update', $project) }}" method="POST">
+        <form action="{{ route('admin.projects.update', $project) }}" method="POST" enctype="multipart/form-data" novalidate>
             @method('PUT')
             @csrf
 
@@ -31,6 +31,12 @@
                                     value="{{ old('last_update', $project->last_update) }}" rows="10">
                             </div>
                         </div>
+                    </div>
+                    <div class="mb-3">
+                        <img src="{{ old('image', asset('storage/' . $project->image)) }}" alt="">
+                        <label for="image" class="form-label">immagine</label>
+                        <input class="form-control" type="file" id="image" name="image"
+                            placeholder="cambia il file dell'immagine">
                     </div>
                     <div class="col-8">
                         <div class="mb-5">

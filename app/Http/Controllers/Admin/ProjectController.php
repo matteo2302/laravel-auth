@@ -31,9 +31,13 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        $data = $request->validate([
             'title' => 'required | max:25',
         ]);
+        if (array_key_exists('image', $data)) {
+            $image = Storage::putFile('project_image', $data['image']);
+            $data['image'] = $image;
+        };
 
         $data = $request->all();
         $project = new Project;

@@ -5,7 +5,7 @@
             <h1>Crea progetto</h1>
             <a class="btn btn-primary" href="{{ route('admin.projects.index') }}">Torna indietro</a>
         </header>
-        <form action="{{ route('admin.projects.store') }}" method="POST">
+        <form action="{{ route('admin.projects.store') }}" method="POST" enctype="multipart/form-data" novalidate>
             @csrf
             <div class="row">
                 <div class="col-12">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">immagine</label>
-                        <input type="text" class="form-control" id="image" name="image"
+                        <input class="form-control" type="file" id="image" name="image"
                             placeholder="aggiungi il file dell'immagine">
                     </div>
                     <div class="col-8">
