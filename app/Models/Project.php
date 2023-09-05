@@ -14,8 +14,12 @@ class Project extends Model
     use HasFactory;
     use SoftDeletes;
     protected $fillable = ['title', 'date', 'last_update', 'description', 'image'];
-    public function image(): Attribute
+    // public function image(): Attribute
+    // {
+    //     return Attribute::make(set: fn ($value) => asset('storage/' . $value));
+    // }
+    public function imagePath()
     {
-        return Attribute::make(get: fn ($value) => asset('storage/' . $value));
+        return asset('storage/' . $this->image);
     }
 };

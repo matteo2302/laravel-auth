@@ -33,13 +33,13 @@ class ProjectController extends Controller
     {
         $data = $request->validate([
             'title' => 'required | max:25',
+            'image' => 'nullable | image',
         ]);
+
         if (array_key_exists('image', $data)) {
             $image = Storage::putFile('project_image', $data['image']);
             $data['image'] = $image;
         };
-
-        $data = $request->all();
         $project = new Project;
         $project->fill($data);
         $project->save();
@@ -68,6 +68,10 @@ class ProjectController extends Controller
     public function update(Request $request, Project $project)
     {
         $data = $request->all();
+        if (array_key_exists('image', $data)) {
+            if ($project->image) Storage::delete('', $data['image']);
+            $data['image'] = $image;
+        };
         $project->update($data);
         return to_route('admin.projects.show', $project);
     }

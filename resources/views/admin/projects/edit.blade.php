@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="mb-3">
-                        <img src="{{ old('image', asset('storage/' . $project->image)) }}" alt="">
+                        <img src="{{ old('image', asset('storage/' . $project->imagePath())) }}" alt="">
                         <label for="image" class="form-label">immagine</label>
                         <input class="form-control" type="file" id="image" name="image"
                             placeholder="cambia il file dell'immagine">

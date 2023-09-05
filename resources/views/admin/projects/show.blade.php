@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="d-flex">
-            <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
+            <img src="{{ asset('storage/' . $project->imagePath()) }}" alt="{{ $project->title }}">
             <div>
                 <h1 class="my-5">{{ $project->title }}</h1>
                 <h4 class="mb-5">Fatto il: {{ $project->date }}</h4>
